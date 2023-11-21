@@ -12,7 +12,7 @@ import { heroOptions } from "./particlesOptions";
 
 const HeroParticles = () => {
   return (
-    <div className="w-full h-screen min-h-[800px]">
+    <div className="w-full h-screen min-h-[800px] absolute">
       <ParticlesComponent
         id="hero-particles"
         className="w-full h-screen z-0 min-h-[800px]"

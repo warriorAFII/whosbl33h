@@ -24,8 +24,8 @@
 }
 
 body {
-	background: url("https://uploads-ssl.webflow.com/62e3ee10882dc50bcae8d07a/631a5d4631d4c55a475f3e34_noise-50.png");
-	background-color: #fbcc86;
+	
+	background-color: #Fdc269;
 	position: relative;
 	overflow-x: hidden;
 	-webkit-overflow-x: hidden;
@@ -111,7 +111,7 @@ polyline {
 .bounce:hover {
 	display: inline-block;
 	animation: rubberband 0.8s ease-out;
-	color: #cbbde5;
+	color: #69a4fd;
 }
 
 @keyframes rubberband {

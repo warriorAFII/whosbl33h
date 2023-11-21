@@ -10,11 +10,11 @@
 import { m, LazyMotion, domAnimation } from "framer-motion";
 
 const HeroText = () => {
-  const name = "Afnan ?";
+  const name = "Blox ?";
 
   return (
     <div
-      className="noselect w-fit h-fit text-grayscale-50 absolute z-10 flex flex-col justify-center items-center rounded-[50%]"
+      className="noselect w-fit h-fit text-grayscale-50  z-10 flex flex-col justify-center items-center rounded-[50%]"
       id="repulse-div"
     >
       <LazyMotion features={domAnimation} strict>
@@ -30,7 +30,7 @@ const HeroText = () => {
             whileInView={{ x: 0 }}
             transition={{ duration: 0.6, type: "spring" }}
           >
-            Who's{" "}
+            Build{" "}
           </m.span>
           <m.div
             initial={{ x: 100 }}
