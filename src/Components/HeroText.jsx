@@ -32,26 +32,14 @@ const HeroText = () => {
           >
             BUILD{" "}
           </m.span>
-          <m.div
-            initial={{ x: 100 }}
+          <m.span
+            initial={{ x: -100 }}
             whileInView={{ x: 0 }}
             transition={{ duration: 0.6, type: "spring" }}
           >
-            {name.split("").map((char, index) => {
-              if (char === " ") {
-                return " ";
-              }
-              return (
-                <span
-                  key={index}
-                  className="text-primary-400 bounce"
-                  style={{ fontSize: "1.2em" }}
-                >
-                  {char}
-                </span>
-              );
-            })}
-          </m.div>
+            BLOX{" "}
+          </m.span>
+          
         </m.h1>
       </LazyMotion>
     </div>
