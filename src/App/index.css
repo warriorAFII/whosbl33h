@@ -25,7 +25,7 @@
 
 body {
 	background: url("https://uploads-ssl.webflow.com/62e3ee10882dc50bcae8d07a/631a5d4631d4c55a475f3e34_noise-50.png");
-	background-color: #5c546b;
+	background-color: #fbcc86;
 	position: relative;
 	overflow-x: hidden;
 	-webkit-overflow-x: hidden;
@@ -39,13 +39,11 @@ body {
 #repulse-div {
 	-webkit-appearance: none;
 	appearance: none;
-	-webkit-filter: drop-shadow(0 0 5rem #292d44);
-	filter: drop-shadow(0 0 5rem #292d44);
+	
 }
 
 #repulse-div > h1 {
-	-webkit-filter: drop-shadow(0 0 5rem #292d44);
-	filter: drop-shadow(0 0 5rem #292d44);
+	
 }
 
 #journey-scroll::-webkit-scrollbar {

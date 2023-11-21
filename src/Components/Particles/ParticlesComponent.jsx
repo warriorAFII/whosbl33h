@@ -11,6 +11,7 @@ import { useCallback } from "react";
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
 
+
 const ParticlesComponent = (props) => {
   const { particlesOptions, className, id } = props;
 
