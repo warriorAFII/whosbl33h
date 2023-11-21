@@ -10,7 +10,7 @@
 import { m, LazyMotion, domAnimation } from "framer-motion";
 
 const HeroText = () => {
-  const name = "Blox ?";
+  const name = "BLOX ?";
 
   return (
     <div
@@ -23,14 +23,14 @@ const HeroText = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, type: "spring" }}
           className="text-center flex justify-center items-center flex-col opacity-100 text-7xl sm:text-9xl cursor-default"
-          style={{ fontFamily: "SuperMario" }}
+          style={{ fontFamily: "League Spartan" }}
         >
           <m.span
             initial={{ x: -100 }}
             whileInView={{ x: 0 }}
             transition={{ duration: 0.6, type: "spring" }}
           >
-            Build{" "}
+            BUILD{" "}
           </m.span>
           <m.div
             initial={{ x: 100 }}
