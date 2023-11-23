@@ -70,7 +70,7 @@ const Hero = () => {
             exit="exit"
             variants={imageVariantSecond}
           />
-          <HeroParticles />
+          {/* <HeroParticles /> */}
         </m.div>
         <HeroScroller />
       </LazyMotion>

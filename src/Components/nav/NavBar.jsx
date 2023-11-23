@@ -7,23 +7,48 @@
    Last modification: 02/06/2023
 */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { navLinks } from "../../Constants/constants";
 import { bl33hIcon, close, menu } from "../../assets";
 import { styles } from "../../styles.js";
+import { motion, useAnimation } from "framer-motion";
 
 const Navbar = () => {
 	const [active, setActive] = useState("");
 	const [toggle, setToggle] = useState(false);
-
+	const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+	const controls = useAnimation();
+  
+	useEffect(() => {
+	  const handleScroll = () => {
+		const scrollY = window.scrollY;
+  
+		// Adjust the threshold as needed
+		if (scrollY > 100) {
+		  controls.start({ opacity: 0 });
+		  setIsNavbarVisible(false);
+		} else {
+		  controls.start({ opacity: 1 });
+		  setIsNavbarVisible(true);
+		}
+	  };
+  
+	  window.addEventListener("scroll", handleScroll);
+  
+	  return () => {
+		window.removeEventListener("scroll", handleScroll);
+	  };
+	}, [controls]);
 	return (
-		<nav
-			className={`
-      ${styles.paddingX} w-full flex items-center py-5
-      fixed top-0 z-20 bg-primary
-    `}
-		>
+		<motion.nav
+      className={`
+        ${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20
+      `}
+      initial={{ opacity: 1 }}
+      animate={controls}
+      transition={{ duration: 0.3 }}
+    >
 			<div
 				className="w-full h-full"
 				style={{
@@ -48,7 +73,7 @@ const Navbar = () => {
 					<img
 						src={bl33hIcon}
 						alt={bl33hIcon}
-						className="w-18 h-9 object-contain"
+						className="w-18 h-20 object-contain"
 					/>
 					<p className="text-white text-[18px] font-bold cursor-pointer flex"></p>
 				</Link>
@@ -113,7 +138,7 @@ const Navbar = () => {
 					</div>
 				</div>
 			</div>
-		</nav>
+		</motion.nav>
 	);
 };
 

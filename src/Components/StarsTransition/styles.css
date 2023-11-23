@@ -1,0 +1,62 @@
+/* StarsTransition.css */
+.stars-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .stars,
+  .stars2,
+  .stars3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('path-to-your-star-image.png') repeat;
+    animation: starsAnimation 5s linear infinite;
+  }
+  
+  @keyframes starsAnimation {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .stars2 {
+    animation-delay: 1s;
+  }
+  
+  .stars3 {
+    animation-delay: 2s;
+  }
+  
+  /* Additional small white stars */
+  .small-stars {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #ffffff; /* White color */
+    opacity: 0;
+    animation: smallStarsAnimation 3s linear infinite;
+    content: '';
+  }
+  
+  @keyframes smallStarsAnimation {
+    from {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.5;
+    }
+    to {
+      transform: translateY(-20px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  .small-stars:nth-child(odd) {
+    animation-delay: 0.5s;
+  }
+  
+  .small-stars:nth-child(even) {
+    animation-delay: 1s;
+  }

@@ -22,12 +22,31 @@
 
 
 body {
-    background-color: #Fdc269;
+   
     position: relative;
     overflow-x: hidden;
     -webkit-overflow-x: hidden;
     font-family: 'League Spartan', sans-serif;
+    transition: background-color 0.5s ease-in-out;
 }
+
+.hero {
+    height: 100vh;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .about {
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
 
 .overflow-hidden-web {
     overflow: hidden;

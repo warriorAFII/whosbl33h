@@ -24,7 +24,7 @@ const SectionTitle = (props) => {
           className="opacity-50"
           style={{
             textTransform: "uppercase",
-            fontFamily: "Poppins, sans-serif",
+            fontFamily: "Legacy Spartans, sans-serif",
             fontWeight: "600",
           }}
         >
