@@ -59,7 +59,7 @@ const Hero = () => {
             exit="exit"
             variants={imageVariantFirst}
           />
-          <m.img
+          {/* <m.img
             src={avatarFallOutline}
             style={{ position: "absolute", top: 27, left: 105, scale: 0.5 }}
             layout="fill"
@@ -69,7 +69,7 @@ const Hero = () => {
             animate="animate"
             exit="exit"
             variants={imageVariantSecond}
-          />
+          /> */}
           {/* <HeroParticles /> */}
         </m.div>
         <HeroScroller />

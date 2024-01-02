@@ -41,7 +41,7 @@ const Contact = () => {
 				<SocialLinks />
 				<div className="bg-grayscale-950 flex justify-center pb-4 text-grayscale-50">
 					<span>
-						Made by <em>Sara Echeverría (bl33h)</em>
+						<em>Build Blox Forever</em>
 					</span>
 				</div>
 			</div>
