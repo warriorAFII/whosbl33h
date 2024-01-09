@@ -1,33 +1,45 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 import NavBar from "../Components/nav/NavBar";
 import Hero from "../Pages/Hero";
 import Projects from "../Pages/Projects";
 import About from "../Pages/About";
 import Skills from "../Pages/Skills";
 import Contact from "../Pages/Contact";
-import StarsTransition from '../Components/StarsTransition';
-import './index.css';
+import StarsTransition from "../Components/StarsTransition";
+import "./index.css";
 
 function App() {
+  const [backgroundColor, setBackgroundColor] = useState("#Fdc269");
+
   useEffect(() => {
-    const handleScroll = () => {
-      const aboutSection = document.querySelector('.about');
-      const heroHeight = document.querySelector('.hero').offsetHeight;
-      const scrollPosition = window.scrollY;
+    document.body.style.backgroundColor = backgroundColor;
+  }, [backgroundColor]);
 
-      if (scrollPosition >= heroHeight / 2) {
-        document.body.style.backgroundColor = '#000d36';
-      } else {
-        document.body.style.backgroundColor = '#Fdc269';
-      }
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const aboutSection =
+  //       document.querySelector(".starTransition").offsetHeight;
+  //     const heroHeight = document.querySelector(".hero").offsetHeight;
+  //     const scrollPosition = window.scrollY;
 
-    window.addEventListener('scroll', handleScroll);
+  //     if (
+  //       scrollPosition >= heroHeight / 2 &&
+  //       scrollPosition < heroHeight + aboutSection / 2
+  //     ) {
+  //       setBackgroundColor("#000d36");
+  //     } else if (scrollPosition >= heroHeight + aboutSection / 2) {
+  //       setBackgroundColor("#2fc6ed");
+  //     } else {
+  //       setBackgroundColor("#Fdc269");
+  //     }
+  //   };
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <>
@@ -36,16 +48,15 @@ function App() {
         <Hero />
       </div>
       <div className="starTransition">
-      <StarsTransition/>
+        <StarsTransition setBackgroundColor={setBackgroundColor} />
       </div>
-   
+
       <div className="about">
-        <About />
+        <About setBackgroundColor={setBackgroundColor} />
       </div>
-      {/* <div className="projects">
+      <div className="projects">
         <Projects />
-      </div> */}
-      {/* <Skills /> */}
+      </div>
       <div className="contact">
         <Contact />
       </div>

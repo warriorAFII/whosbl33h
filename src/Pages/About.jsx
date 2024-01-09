@@ -1,55 +1,109 @@
-/*
-   Copyright (C), 2023-2024, Sara Echeverria (bl33h)
-   Author: Sara Echeverria
-   FileName: About.jsx
-   Version: I
-   Creation: 02/06/2023
-   Last modification: 03/06/2023
-*/
-
-import { m, LazyMotion, domAnimation } from "framer-motion";
+import React, { useRef } from "react";
+import {
+  useScroll,
+  motion,
+  useMotionValueEvent,
+  useTransform,
+} from "framer-motion";
 import SectionTitle from "../Components/SectionTitle";
 import { memoji } from "../Constants/constants";
 import { introduction } from "../Constants/constants";
 import ImageSlider from "../Components/elements/ImageSlider";
+import CloudSvg from "../assets/clouds";
+import Cloud from "../assets/cloud.png";
+import Mountains from "../assets/mountains.png";
+import { text } from "@fortawesome/fontawesome-svg-core";
+const About = ({ setBackgroundColor }) => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end start"],
+  });
 
-const About = () => {
+  // useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  //   if (latest === 1) {
+  //     setBackgroundColor("#2fc6ed");
+  //   }
+  // });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "200%"]);
   return (
-    <div id="about" className="w-full flex justify-center overflow-hidden-web">
-      <div className="w-full xl:w-[70%] flex flex-col pb-16">
-        <div className="w-full">
-          <SectionTitle title="ABOUT ME" subtitle="Introduction" />
-        </div>
-        <div className="w-full flex flex-col-reverse sm:flex-row">
-          <div className="w-full md:w-[50%] md:h-full flex items-center mt-10">
-            <LazyMotion features={domAnimation} strict>
-              <m.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{
-                  duration: 0.5,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 20,
-                }}
-                style={{ fontFamily: "Poppins, sans-serif" }}
-                className="text-grayscale-50 p-6 text-center flex flex-col gap-6"
-              >
-                <span className="text-primary-400">{introduction.text[0]}</span>
-                <span>{introduction.text[1]}</span>
-                <span>{introduction.text[2]}</span>
-                <span>{introduction.text[3]}</span>
-              </m.p>
-            </LazyMotion>
-          </div>
-          <div className="w-full md:w-[50%] flex h-full items-center justify-center">
-            <div className="w-[80%] lg:w-[50%] h-[300px] sm:h-[350px] flex justify-center items-center">
-              <ImageSlider images={memoji.image} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <motion.div
+      id="about"
+      className="w-full flex justify-center overflow-hidden-web"
+      style={{
+        // transform: isInView ? "none" : "translateX(-1000px)",
+
+        height: "100vh",
+      }}
+      ref={container}
+    >
+      <img
+        src={Cloud}
+        alt="My Image"
+        style={{
+          height: 150,
+          width: 220,
+          position: "absolute",
+          marginTop: 20,
+          left: 15,
+        }}
+      />
+      <img
+        src={Cloud}
+        alt="My Image"
+        style={{
+          height: 150,
+          width: 220,
+          position: "absolute",
+
+          right: 15,
+        }}
+      />
+      <motion.h1
+        style={{
+          textAlign: "center",
+          position: "absolute",
+          fontSize: 25,
+          y: textY,
+          zIndex: 0,
+          marginTop: 105,
+        }}
+      >
+        UNICEF works in over 190 countries and territories to save children’s
+        lives, to defend their rights, and to help them fulfil their potential,
+        from early childhood through adolescence. And we never give up. UNICEF
+        works in over 190 countries and territories to save children’s lives, to
+        defend their rights, and to help them fulfil their potential, from early
+        childhood through adolescence. And we never give up.
+      </motion.h1>
+      <motion.div style={{ y: textY }}>
+        <img
+          src={Cloud}
+          alt="My Image"
+          style={{
+            height: 150,
+            width: 220,
+            position: "absolute",
+            marginTop: 330,
+            left: 15,
+          }}
+        />
+      </motion.div>
+
+      <motion.div style={{ y: backgroundY }}></motion.div>
+      <img
+        src={Mountains}
+        alt="My Image"
+        style={{
+          width: "100vw",
+          bottom: 0,
+          zIndex: 1,
+        }}
+      />
+      {/* Rest of the code */}
+    </motion.div>
   );
 };
 

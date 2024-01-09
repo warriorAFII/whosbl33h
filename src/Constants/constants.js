@@ -96,18 +96,14 @@ const introduction = {
 export const navLinks = [
   {
     id: "about",
-    title: "About",
+    title: "Instagram",
   },
   {
     id: "projects",
-    title: "Projects",
+    title: "X",
   },
   {
     id: "skills",
-    title: "Skills",
-  },
-  {
-    id: "contact",
     title: "Contact",
   },
 ];

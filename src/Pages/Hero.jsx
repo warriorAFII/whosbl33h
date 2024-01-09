@@ -5,7 +5,7 @@ import HeroParticles from "../Components/Particles/HeroParticles";
 import HeroScroller from "../Components/elements/HeroScroller";
 import { avatar, avatarFallOutline } from "../assets";
 
-const Hero = () => {
+const Hero = ({ style }) => {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -35,18 +35,20 @@ const Hero = () => {
   const clipPathValueFirst = `inset(0 0 ${scrollY}px 0)`;
 
   return (
-    <div id="hero" className="w-full flex justify-center overflow-hidden-web relative">
+    <div
+      id="hero"
+      className="w-full flex justify-center overflow-hidden-web relative"
+    >
       <LazyMotion features={domAnimation} strict>
         <m.div
+          style={{ ...style }}
           id="hero"
           className="relative w-full flex justify-center items-center h-screen min-h-[800px]"
         >
           <style>{`.clip-path-first { clip-path: ${clipPathValueFirst}; }`}</style>
           <HeroText />
 
-          <div
-            className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-transparent to-black"
-          />
+          <div className="absolute bottom-0 left-0 w-full h-[200px] bg-gradient-to-t from-transparent to-black" />
           <m.img
             src={avatar}
             alt="hero"
@@ -72,7 +74,7 @@ const Hero = () => {
           /> */}
           {/* <HeroParticles /> */}
         </m.div>
-        <HeroScroller />
+        {/* <HeroScroller /> */}
       </LazyMotion>
     </div>
   );
