@@ -13,7 +13,8 @@ import { navLinks } from "../../Constants/constants";
 import { bl33hIcon, close, menu } from "../../assets";
 import { styles } from "../../styles.js";
 import { motion, useAnimation } from "framer-motion";
-
+import InstagramIcon from "../../assets/instagram.jsx";
+import TwitterIcon from "../../assets/twitter";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
@@ -74,25 +75,15 @@ const Navbar = () => {
             alt={bl33hIcon}
             className="w-18 h-20 object-contain"
           />
+
           <p className="text-white text-[18px] font-bold cursor-pointer flex"></p>
         </Link>
         <ul
           className="list-none hidden sm:flex flex-row gap-5"
           style={{ color: "#FFFFFF" }}
         >
-          {navLinks.map((link) => {
-            return (
-              <li
-                key={link.id}
-                className={`${
-                  active === link.title ? "text-white" : "text-secondary"
-                } hover:text-white text-[18px] font-medium cursor-pointer `}
-                onClick={() => setActive(link.title)}
-              >
-                <a href={`#${link.id}`}>{link.title}</a>
-              </li>
-            );
-          })}
+          <InstagramIcon height={45} />
+          <TwitterIcon height={35} style={{ marginTop: 5 }} />
         </ul>
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img

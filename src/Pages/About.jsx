@@ -1,18 +1,9 @@
 import React, { useRef } from "react";
-import {
-  useScroll,
-  motion,
-  useMotionValueEvent,
-  useTransform,
-} from "framer-motion";
-import SectionTitle from "../Components/SectionTitle";
-import { memoji } from "../Constants/constants";
-import { introduction } from "../Constants/constants";
-import ImageSlider from "../Components/elements/ImageSlider";
-import CloudSvg from "../assets/clouds";
+import { useScroll, motion, useTransform } from "framer-motion";
+
 import Cloud from "../assets/cloud.png";
 import Mountains from "../assets/mountains.png";
-import { text } from "@fortawesome/fontawesome-svg-core";
+
 const About = ({ setBackgroundColor }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -27,70 +18,72 @@ const About = ({ setBackgroundColor }) => {
   // });
 
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "200%"]);
+  const textY = useTransform(scrollYProgress, [0.5, 1], ["0%", "200%"]);
+  const cloudOpacity = useTransform(scrollYProgress, [0.14, 0.2], [0, 1]);
+  console.log(scrollYProgress);
   return (
     <motion.div
       id="about"
-      className="w-full flex justify-center overflow-hidden-web"
+      className="w-full overflow-hidden-web"
       style={{
-        // transform: isInView ? "none" : "translateX(-1000px)",
-
         height: "100vh",
+
+        // transform: isInView ? "none" : "translateX(-1000px)",
       }}
       ref={container}
     >
-      <img
-        src={Cloud}
-        alt="My Image"
+      <div
         style={{
-          height: 150,
-          width: 220,
-          position: "absolute",
-          marginTop: 20,
-          left: 15,
+          flexDirection: "row",
+          display: "flex",
+          justifyContent: "space-between",
         }}
-      />
-      <img
-        src={Cloud}
-        alt="My Image"
-        style={{
-          height: 150,
-          width: 220,
-          position: "absolute",
+      >
+        <motion.div style={{ opacity: cloudOpacity }}>
+          <img
+            src={Cloud}
+            alt="My Image"
+            style={{
+              height: 100,
+              width: 220,
+              marginTop: 20,
+              left: 15,
 
-          right: 15,
-        }}
-      />
+              paddingLeft: 100,
+            }}
+          />
+        </motion.div>
+        <motion.div style={{ opacity: cloudOpacity }}>
+          <img
+            src={Cloud}
+            alt="My Image"
+            style={{
+              height: 130,
+              width: 200,
+              marginTop: 50,
+            }}
+          />
+        </motion.div>
+      </div>
+      <h1 style={{ textAlign: "center", fontSize: 50 }}>What we offer! </h1>
       <motion.h1
         style={{
           textAlign: "center",
-          position: "absolute",
-          fontSize: 25,
+          fontSize: 22,
+          zIndex: 1,
+          marginTop: 70,
           y: textY,
-          zIndex: 0,
-          marginTop: 105,
+          position: "relative",
+          paddingRight: 100,
+          paddingLeft: 100,
         }}
       >
-        UNICEF works in over 190 countries and territories to save children’s
-        lives, to defend their rights, and to help them fulfil their potential,
-        from early childhood through adolescence. And we never give up. UNICEF
-        works in over 190 countries and territories to save children’s lives, to
-        defend their rights, and to help them fulfil their potential, from early
-        childhood through adolescence. And we never give up.
+        Discover the extraordinary with Build Blox. We specialize in crafting
+        stunning User Interfaces (UI) that elevate your online presence. From
+        e-commerce to local business websites, our services are tailored to meet
+        your unique needs. Experience the perfect blend of creativity and
+        functionality with our team. Let's bring your vision to life.
       </motion.h1>
-      <motion.div style={{ y: textY }}>
-        <img
-          src={Cloud}
-          alt="My Image"
-          style={{
-            height: 150,
-            width: 220,
-            position: "absolute",
-            marginTop: 330,
-            left: 15,
-          }}
-        />
-      </motion.div>
 
       <motion.div style={{ y: backgroundY }}></motion.div>
       <img
@@ -98,8 +91,10 @@ const About = ({ setBackgroundColor }) => {
         alt="My Image"
         style={{
           width: "100vw",
-          bottom: 0,
-          zIndex: 1,
+          marginTop: 100,
+          zIndex: 20,
+          height: 500,
+          position: "relative",
         }}
       />
       {/* Rest of the code */}
