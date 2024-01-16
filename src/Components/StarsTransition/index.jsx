@@ -8,7 +8,6 @@ import {
 } from "framer-motion";
 import StarsParticles from "../Particles/StarsParticles";
 import styles from "./styles.module.css";
-import HotAirBalloon from "../../assets/hotAirBalloon.png";
 
 const getRandomTransformOrigin = () => {
   const value = (16 + 40 * Math.random()) / 100;
@@ -41,31 +40,28 @@ const StarsTransition = ({ style, setBackgroundColor }) => {
   const controls = useAnimation();
 
   const textContainer = useRef(null);
+  const container = useRef(null);
   const paragraph = "Bring your idea to reality!";
   const { scrollYProgress } = useScroll({
-    target: textContainer,
-    offset: ["end end", "end 0.6"],
+    target: container,
+    offset: ["start end", "end start"],
   });
 
   const starsOpacity = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.9, 1],
+    [0.3, 0.5, 0.8, 1],
     [0, 1, 1, 0]
   );
-  const starsShake = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.6, 1],
-    [0, 10, -10, 0]
-  );
+  const textProgress = useTransform(scrollYProgress, [0.25, 0.51], [0, 1]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest >= 0.07) {
+    if (latest >= 0.3) {
       setBackgroundColor("#000d36");
     } else {
       setBackgroundColor("#fdc269");
     }
 
-    if (latest === 1) {
+    if (latest === 0.51) {
       controls.start("start");
     } else {
       controls.stop();
@@ -103,7 +99,6 @@ const StarsTransition = ({ style, setBackgroundColor }) => {
         <motion.span
           style={{
             opacity: opacity,
-
             display: "inline-block",
             ...getRandomTransformOrigin(),
           }}
@@ -119,6 +114,7 @@ const StarsTransition = ({ style, setBackgroundColor }) => {
   return (
     <div>
       <motion.div
+        ref={container}
         transition={{ duration: 0.8, ease: "easeInOut" }}
         className="w-full flex justify-center overflow-hidden-web relative"
         style={{ height: "100vh", ...style }}
@@ -141,7 +137,7 @@ const StarsTransition = ({ style, setBackgroundColor }) => {
             const start = i / words.length;
             const end = start + 1 / words.length;
             return (
-              <Word key={i} progress={scrollYProgress} range={[start, end]}>
+              <Word key={i} progress={textProgress} range={[start, end]}>
                 {word}
               </Word>
             );
