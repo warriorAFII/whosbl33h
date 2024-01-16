@@ -4,37 +4,78 @@ import {
   useScroll,
   useTransform,
   useMotionValueEvent,
+  useAnimation,
 } from "framer-motion";
 import StarsParticles from "../Particles/StarsParticles";
 import styles from "./styles.module.css";
 import HotAirBalloon from "../../assets/hotAirBalloon.png";
+
+const getRandomTransformOrigin = () => {
+  const value = (16 + 40 * Math.random()) / 100;
+  const value2 = (15 + 36 * Math.random()) / 100;
+  return {
+    originX: value,
+    originY: value2,
+  };
+};
+
+const getRandomDelay = () => -(Math.random() * 0.7 + 0.05);
+
+const randomDuration = () => Math.random() * 0.07 + 0.23;
+
+const variants = {
+  start: (i) => ({
+    rotate: i % 2 === 0 ? [-5, 5, 0] : [5, -5.4, 0],
+    transition: {
+      delay: getRandomDelay(),
+      repeat: Infinity,
+      duration: randomDuration(),
+    },
+  }),
+  reset: {
+    rotate: 0,
+  },
+};
+
 const StarsTransition = ({ style, setBackgroundColor }) => {
+  const controls = useAnimation();
+
   const textContainer = useRef(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ["0 1", "start start"],
-  // });
   const paragraph = "Bring your idea to reality!";
   const { scrollYProgress } = useScroll({
     target: textContainer,
-    offset: ["end end", "end 0.3"],
+    offset: ["end end", "end 0.6"],
   });
-  // change background color at right time
+
+  const starsOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.9, 1],
+    [0, 1, 1, 0]
+  );
+  const starsShake = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.6, 1],
+    [0, 10, -10, 0]
+  );
+
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest);
-    if (latest >= 0.07 && latest < 1) {
+    if (latest >= 0.07) {
       setBackgroundColor("#000d36");
-    } else if (latest === 1) {
-      setBackgroundColor("#2fc6ed");
     } else {
       setBackgroundColor("#fdc269");
     }
+
+    if (latest === 1) {
+      controls.start("start");
+    } else {
+      controls.stop();
+    }
   });
+
   const words = paragraph.split(" ");
 
   const Word = ({ children, progress, range }) => {
     const amount = range[1] - range[0];
-
     const step = amount / children.length;
 
     return (
@@ -59,17 +100,21 @@ const StarsTransition = ({ style, setBackgroundColor }) => {
     return (
       <span>
         <span className={styles.shadow}>{children}</span>
-        <motion.span style={{ opacity: opacity }}>{children}</motion.span>
+        <motion.span
+          style={{
+            opacity: opacity,
+
+            display: "inline-block",
+            ...getRandomTransformOrigin(),
+          }}
+          variants={variants}
+          animate={controls}
+        >
+          {children}
+        </motion.span>
       </span>
     );
   };
-
-  const starsOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.1, 0.9, 1],
-    [0, 1, 1, 0]
-  );
-  const starsShake = useTransform(scrollYProgress, [0, 0.1], [0, 10]);
 
   return (
     <div>
@@ -82,7 +127,7 @@ const StarsTransition = ({ style, setBackgroundColor }) => {
           className="w-full h-full absolute top-0 left-0 z-1"
           style={{
             opacity: starsOpacity,
-            x: starsShake, // Apply the shake effect to the x-axis
+            // Apply the shake effect to the x-axis
           }}
           animate={{
             x: 0, // Ensure the stars return to their original position after shaking
