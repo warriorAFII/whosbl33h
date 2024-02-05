@@ -1,54 +1,68 @@
-/*
-   Copyright (C), 2023-2024, Sara Echeverria (bl33h)
-   Author: Sara Echeverria
-   FileName: Projects.jsx
-   Version: I
-   Creation: 02/06/2023
-   Last modification: 03/06/2023
-*/
-
+import React, { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import ProjectCards from "../Components/ProjectCards";
 import SectionTitle from "../Components/SectionTitle";
 import PhotoFrame from "../assets/photoFrame.png";
-const Projects = () => {
-  return (
-    <div
-      id="projects"
-      className="w-full flex justify-center "
-      style={{ backgroundColor: "brown", height: "100vh" }}
-    >
-      <div
-        style={{
-          flexDirection: "row",
-          display: "flex",
+import Conveyor from "../assets/conveyor.png";
+import { useRef } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 
-          alignItems: "center",
+const Projects = ({ setBackgroundColor }) => {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end start"],
+  });
+
+  const controls = useAnimation();
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest >= 0.2) {
+      setBackgroundColor("#f4e3d7ff");
+      controls.start({ x: 0 });
+    }
+  });
+
+  useEffect(() => {
+    controls.start({ x: -100 }); // Initial animation state
+  }, [controls]);
+
+  return (
+    <motion.div
+      id="projects"
+      className="w-full flex"
+      style={{
+        height: "100vh",
+        position: "relative",
+
+        flexDirection: "column",
+      }}
+      ref={container}
+    >
+      <div className="spacer" style={{ height: "30vh" }}></div>
+      <h1
+        style={{
+          color: "#aa6161ff",
+          fontSize: 36,
+          paddingLeft: 30,
+          marginTop: 30,
         }}
       >
-        <img
-          src={PhotoFrame}
-          className="w-50 h-50 object-contain"
-          style={{ width: 350, marginLeft: 50 }}
-        />
-        <h1
-          style={{
-            textAlign: "center",
-            fontSize: 22,
-            zIndex: 1,
-            marginTop: 70,
-            color: "white",
-            paddingLeft: 30,
-            paddingRight: 30,
-          }}
-        >
-          Discover the extraordinary with Build Blox. We specialize in crafting
-          stunning User Interfaces (UI) that elevate your online presence. From
-          e-commerce to local business websites, our services are tailored to
-          meet your unique needs. Experience the perfect blend of creativity and
-          functionality with our team. Let's bring your vision to life.
-        </h1>
-      </div>
-    </div>
+        See what we've been <br /> working on recently!
+      </h1>
+      <motion.img
+        src={Conveyor}
+        style={{
+          width: 1250,
+          height: 500,
+          position: "relative",
+          opacity: 0,
+          x: -100, // Initial position off-screen
+        }}
+        animate={controls}
+      />
+      <div className="spacer" style={{ height: "30vh" }}></div>
+    </motion.div>
   );
 };
 

@@ -27,8 +27,6 @@ body {
 }
 
 .hero {
-  height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,8 +34,6 @@ body {
 }
 
 .about {
-  height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;

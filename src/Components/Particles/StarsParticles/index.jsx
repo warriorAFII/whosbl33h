@@ -73,6 +73,7 @@ const StarsParticles = () => {
           size: {},
         },
         detectRetina: true,
+        fullScreen: { enable: false },
       }}
     ></Particles>
   );

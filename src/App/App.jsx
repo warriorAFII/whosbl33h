@@ -7,6 +7,7 @@ import Skills from "../Pages/Skills";
 import Contact from "../Pages/Contact";
 import StarsTransition from "../Components/StarsTransition";
 import "./index.css";
+import Cloud from "../assets/cloud.png";
 
 function App() {
   const [backgroundColor, setBackgroundColor] = useState("#Fdc269");
@@ -55,7 +56,7 @@ function App() {
         <About setBackgroundColor={setBackgroundColor} />
       </div>
       <div className="projects">
-        <Projects />
+        <Projects setBackgroundColor={setBackgroundColor} />
       </div>
       <div className="contact">
         <Contact />
