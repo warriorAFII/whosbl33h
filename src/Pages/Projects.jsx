@@ -5,7 +5,7 @@ import SectionTitle from "../Components/SectionTitle";
 import PhotoFrame from "../assets/photoFrame.png";
 import Conveyor from "../assets/conveyor.png";
 import { useRef } from "react";
-import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useScroll, useMotionValueEvent, useTransform } from "framer-motion";
 
 const Projects = ({ setBackgroundColor }) => {
   const container = useRef(null);
@@ -22,6 +22,11 @@ const Projects = ({ setBackgroundColor }) => {
       controls.start({ x: 0 });
     }
   });
+  const backgroundColorChange = useTransform(
+    scrollYProgress,
+    [0.2, 0.5],
+    ["#fff", "#f4e3d7ff"]
+  );
 
   useEffect(() => {
     controls.start({ x: -100 }); // Initial animation state
@@ -34,8 +39,8 @@ const Projects = ({ setBackgroundColor }) => {
       style={{
         height: "100vh",
         position: "relative",
-
         flexDirection: "column",
+        backgroundColor: backgroundColorChange,
       }}
       ref={container}
     >
@@ -56,10 +61,10 @@ const Projects = ({ setBackgroundColor }) => {
           width: 1250,
           height: 500,
           position: "relative",
-          opacity: 0,
-          x: -100, // Initial position off-screen
         }}
-        animate={controls}
+        initial={{ x: 900 }}
+        whileInView={{ x: 0 }}
+        transition={{ duration: 0.6, delay: 0.8, type: "spring" }}
       />
       <div className="spacer" style={{ height: "30vh" }}></div>
     </motion.div>

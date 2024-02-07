@@ -7,7 +7,7 @@ import {
 } from "framer-motion";
 import Cloud from "../assets/cloud.png";
 import Mountains from "../assets/mountains.png";
-import HotAirBalloon from "../assets/hotAirBalloon.png";
+import HotAirBalloon from "../assets/hotAirBalloon.jsx";
 import MountainOne from "../assets/mountainTwo.jsx";
 import MountainTwo from "../assets/mountainOne";
 import MountainThree from "../assets/mountainThree";
@@ -15,6 +15,7 @@ import DistantMountain from "../assets/distantMountain";
 import Clouds from "../assets/clouds";
 const About = ({ setBackgroundColor }) => {
   const container = useRef(null);
+  const mountains = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end start"],
@@ -26,21 +27,26 @@ const About = ({ setBackgroundColor }) => {
     }
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const backgroundColorChange = useTransform(
+    scrollYProgress,
+    [0.8, 1],
+    ["#fff", "#f4e3d7ff"]
+  );
+
   const textY = useTransform(scrollYProgress, [0.5, 1], ["0%", "200%"]);
   const cloudOpacity = useTransform(scrollYProgress, [0.14, 0.2], [0, 1]);
-  const cloudsExit = useTransform(scrollYProgress, [0.5, 1], [0, -300]);
-  const hotAirBalloonY = useTransform(scrollYProgress, [0.43, 1], [0, 900]);
+  const cloudsExit = useTransform(scrollYProgress, [0.5, 1], [0, -500]);
+  const MountainsY = useTransform(scrollYProgress, [0.5, 1], [0, 700]);
+  const hotAirBalloonY = useTransform(scrollYProgress, [0.43, 1], [0, 1900]);
   const hotAirBalloonX = useTransform(scrollYProgress, [0.43, 1], [0, -400]);
   return (
     <motion.div
       id="about"
       className="w-full overflow-hidden-web"
       style={{
-        paddingLeft: 50,
-        paddingRight: 50,
         position: "relative",
         // transform: isInView ? "none" : "translateX(-1000px)",
+        height: "200vh",
       }}
       ref={container}
     >
@@ -102,27 +108,24 @@ const About = ({ setBackgroundColor }) => {
           team. Let's bring your vision to life.
         </motion.h1>
         <motion.div
-          style={{ y: hotAirBalloonY, x: hotAirBalloonX }}
+          style={{ y: hotAirBalloonY, x: hotAirBalloonX, width: "50vw" }}
           transition={{
             ease: "easeOut",
           }}
         >
-          <img
-            src={HotAirBalloon}
-            alt="My Image"
-            style={{
-              zIndex: 20,
-              height: 350,
-              width: 800,
-              position: "relative",
-            }}
-          />
+          <HotAirBalloon width="20vh" height="600" />
         </motion.div>
       </div>
       <div style={{ height: "30vh" }} className="spacer"></div>
-      <div
-        style={{ display: "flex", justifyContent: "center" }}
+      <motion.div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          position: "relative",
+          y: MountainsY,
+        }}
         className="mountainsContainer"
+        ref={mountains}
       >
         <div
           className="mountainContainer"
@@ -222,15 +225,21 @@ const About = ({ setBackgroundColor }) => {
             style={{ zIndex: 1, position: "relative" }}
           />
         </div>
-      </div>
+      </motion.div>
 
       <motion.div
-        style={{ position: "absolute", bottom: 0, left: 0, y: cloudsExit }}
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          y: cloudsExit,
+          top: 1950,
+        }}
       >
         <Clouds
           width="100%"
           height="300"
-          style={{ zIndex: 20, position: "relative", top: 2, opacity: 0.1 }}
+          style={{ zIndex: 20, position: "relative", bottom: 15, opacity: 0.1 }}
         />
       </motion.div>
 
@@ -241,23 +250,21 @@ const About = ({ setBackgroundColor }) => {
           left: 0,
           y: cloudsExit,
           zIndex: 20,
-          top: 1500,
+          top: 2000,
+          width: "100vw",
         }}
       >
-        <Clouds
-          width="100%"
-          height="300"
-          style={{ zIndex: 20, position: "absolute" }}
-        />
-        <div
-          style={{
-            backgroundColor: "white",
-            width: "100vh",
-            height: 500,
+        <Clouds style={{ zIndex: 20, position: "relative" }} />
 
+        <motion.div
+          style={{
+            backgroundColor: backgroundColorChange,
+            width: "105vw",
+            height: 1200,
+            bottom: 160,
             position: "relative",
           }}
-        ></div>
+        ></motion.div>
       </motion.div>
 
       {/* Rest of the code */}
