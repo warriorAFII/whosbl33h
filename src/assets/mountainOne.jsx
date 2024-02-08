@@ -7,7 +7,7 @@ const MountainOne = ({ height, width, ...props }) => (
     height={height}
     preserveAspectRatio="xMidYMid meet"
     width={width}
-    viewBox="0 0 130 154"
+    viewBox="0 0 120 100"
   >
     <defs id="defs1">
       <clipPath id="clipPath7" clipPathUnits="userSpaceOnUse">

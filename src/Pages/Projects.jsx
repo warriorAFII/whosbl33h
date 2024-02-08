@@ -6,6 +6,7 @@ import PhotoFrame from "../assets/photoFrame.png";
 import Conveyor from "../assets/conveyor.png";
 import { useRef } from "react";
 import { useScroll, useMotionValueEvent, useTransform } from "framer-motion";
+import ProjectsMenu from "../Components/ProjectsMenu";
 
 const Projects = ({ setBackgroundColor }) => {
   const container = useRef(null);
@@ -17,7 +18,7 @@ const Projects = ({ setBackgroundColor }) => {
   const controls = useAnimation();
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest >= 0.2) {
+    if (latest >= 0.4) {
       setBackgroundColor("#f4e3d7ff");
       controls.start({ x: 0 });
     }
@@ -55,6 +56,7 @@ const Projects = ({ setBackgroundColor }) => {
       >
         See what we've been <br /> working on recently!
       </h1>
+      <ProjectsMenu />
       <motion.img
         src={Conveyor}
         style={{
@@ -62,8 +64,6 @@ const Projects = ({ setBackgroundColor }) => {
           height: 500,
           position: "relative",
         }}
-        initial={{ x: 900 }}
-        whileInView={{ x: 0 }}
         transition={{ duration: 0.6, delay: 0.8, type: "spring" }}
       />
       <div className="spacer" style={{ height: "30vh" }}></div>

@@ -8,11 +8,12 @@ import {
 import Cloud from "../assets/cloud.png";
 import Mountains from "../assets/mountains.png";
 import HotAirBalloon from "../assets/hotAirBalloon.jsx";
-import MountainOne from "../assets/mountainTwo.jsx";
-import MountainTwo from "../assets/mountainOne";
+import MountainTwo from "../assets/mountainTwo.jsx";
+import MountainOne from "../assets/mountainOne";
 import MountainThree from "../assets/mountainThree";
 import DistantMountain from "../assets/distantMountain";
 import Clouds from "../assets/clouds";
+import AllMountains from "../assets/AllMountain";
 const About = ({ setBackgroundColor }) => {
   const container = useRef(null);
   const mountains = useRef(null);
@@ -46,6 +47,7 @@ const About = ({ setBackgroundColor }) => {
       style={{
         position: "relative",
         // transform: isInView ? "none" : "translateX(-1000px)",
+
         height: "200vh",
       }}
       ref={container}
@@ -117,116 +119,20 @@ const About = ({ setBackgroundColor }) => {
         </motion.div>
       </div>
       <div style={{ height: "30vh" }} className="spacer"></div>
+
       <motion.div
         style={{
           display: "flex",
-          justifyContent: "center",
-          position: "relative",
+          height: 700,
+          width: "100vw",
+          maxWidth: 1200,
           y: MountainsY,
         }}
         className="mountainsContainer"
         ref={mountains}
       >
-        <div
-          className="mountainContainer"
-          style={{
-            alignItems: "center",
-            alignContent: "center",
-            zIndex: 1,
-            display: "flex",
-            flexDirection: "column",
-            position: "absolute",
-            right: 500,
-            marginTop: 10,
-          }}
-        >
-          <h1 style={{ fontSize: 25, marginBottom: 30 }}>Branding</h1>
-          <MountainOne
-            width="70vh"
-            height="600"
-            style={{ zIndex: 1, position: "relative" }}
-          />
-        </div>
-        <div
-          className="mountainContainer"
-          style={{
-            alignItems: "center",
-            alignContent: "center",
-            zIndex: 0,
-            display: "flex",
-            flexDirection: "column",
-            position: "absolute",
-            right: 350,
-            marginTop: 250,
-          }}
-        >
-          <DistantMountain
-            width="70vh"
-            height="600"
-            style={{ zIndex: 1, position: "relative" }}
-          />
-        </div>
-
-        <div
-          className="mountainContainer"
-          style={{
-            alignItems: "center",
-            alignContent: "center",
-            zIndex: 1,
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <h1 style={{ fontSize: 25, marginBottom: 30 }}>
-            Web/App Development
-          </h1>
-          <MountainTwo
-            width="70vh"
-            height="600"
-            style={{ zIndex: 1, position: "relative" }}
-          />
-        </div>
-        <div
-          className="mountainContainer"
-          style={{
-            alignItems: "center",
-            alignContent: "center",
-            zIndex: 0,
-            display: "flex",
-            flexDirection: "column",
-            position: "absolute",
-            left: 380,
-            marginTop: 250,
-          }}
-        >
-          <DistantMountain
-            width="70vh"
-            height="600"
-            style={{ position: "relative", zIndex: 1 }}
-          />
-        </div>
-        <div
-          className="mountainContainer"
-          style={{
-            alignItems: "center",
-            alignContent: "center",
-            zIndex: 1,
-            display: "flex",
-            flexDirection: "column",
-            position: "absolute",
-            left: 500,
-            marginTop: 10,
-          }}
-        >
-          <h1 style={{ fontSize: 25, marginBottom: 30 }}>Marketing</h1>
-          <MountainThree
-            width="70vh"
-            height="600"
-            style={{ zIndex: 1, position: "relative" }}
-          />
-        </div>
+        <AllMountains />
       </motion.div>
-
       <motion.div
         style={{
           position: "absolute",
@@ -254,7 +160,10 @@ const About = ({ setBackgroundColor }) => {
           width: "100vw",
         }}
       >
-        <Clouds style={{ zIndex: 20, position: "relative" }} />
+        <Clouds
+          style={{ zIndex: 20, position: "relative" }}
+          backgroundColorChange={backgroundColorChange}
+        />
 
         <motion.div
           style={{
