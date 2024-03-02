@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./index.css";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { bl33hIcon } from "../../assets";
 function ProjectsMenu() {
   const [open, setOpen] = useState(false);
 
@@ -12,6 +12,7 @@ function ProjectsMenu() {
   const closeMenu = () => {
     setOpen(false);
   };
+  const moduleURL = new URL(import.meta.url);
 
   //lets start animation
   const item = {
@@ -20,15 +21,31 @@ function ProjectsMenu() {
       transition: {
         ease: "easeInOut",
         duration: 0.3,
-        delay: 1.2,
+        delay: 0.8,
       },
     },
   };
 
   return (
     <div className="container">
-      <div className="menu" onClick={isOpen}>
-        <i className="fa fa-bars"></i>
+      <div
+        className="menu"
+        onClick={isOpen}
+        style={{
+          marginTop: 120,
+          marginLeft: 30,
+          backgroundColor: "#aa6161",
+          width: 150,
+          color: "white",
+          padding: 10,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <p>View Projects</p>
+        <i className="fa fa-arrow-circle-right"></i>
       </div>
       <AnimatePresence>
         {open && (
@@ -40,11 +57,12 @@ function ProjectsMenu() {
             transition={{ duration: 0.5 }}
             exit="exit"
           >
+            <img src={bl33hIcon} alt={bl33hIcon} className="logo" />
             <div className="btn_close" onClick={closeMenu}>
               X
             </div>
             <motion.a
-              href=""
+              href="/Pages/ProjectScreens/kratsia-ai"
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8 }}
@@ -57,7 +75,7 @@ function ProjectsMenu() {
                 },
               }}
             >
-              Home
+              Kratsia.Ai
             </motion.a>
             <motion.a
               href=""
@@ -73,7 +91,7 @@ function ProjectsMenu() {
                 },
               }}
             >
-              About
+              Tranquiliti
             </motion.a>
             <motion.a
               href=""
@@ -89,7 +107,7 @@ function ProjectsMenu() {
                 },
               }}
             >
-              Portfolio
+              Pocket Mosque
             </motion.a>
             <motion.a
               href=""
@@ -105,7 +123,7 @@ function ProjectsMenu() {
                 },
               }}
             >
-              Blog
+              Coder JS
             </motion.a>
             <motion.a
               href=""
@@ -121,7 +139,7 @@ function ProjectsMenu() {
                 },
               }}
             >
-              Contact
+              Q-UP
             </motion.a>
           </motion.div>
         )}

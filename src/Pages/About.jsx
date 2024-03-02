@@ -6,14 +6,10 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import Cloud from "../assets/cloud.png";
-import Mountains from "../assets/mountains.png";
 import HotAirBalloon from "../assets/hotAirBalloon.jsx";
-import MountainTwo from "../assets/mountainTwo.jsx";
-import MountainOne from "../assets/mountainOne";
-import MountainThree from "../assets/mountainThree";
-import DistantMountain from "../assets/distantMountain";
 import Clouds from "../assets/clouds";
 import AllMountains from "../assets/AllMountain";
+
 const About = ({ setBackgroundColor }) => {
   const container = useRef(null);
   const mountains = useRef(null);
@@ -34,12 +30,14 @@ const About = ({ setBackgroundColor }) => {
     ["#fff", "#f4e3d7ff"]
   );
 
-  const textY = useTransform(scrollYProgress, [0.5, 1], ["0%", "200%"]);
+  // const textY = useTransform(scrollYProgress, [0.5, 1], ["0%", "200%"]);
+
   const cloudOpacity = useTransform(scrollYProgress, [0.14, 0.2], [0, 1]);
-  const cloudsExit = useTransform(scrollYProgress, [0.5, 1], [0, -500]);
+  const cloudsExit = useTransform(scrollYProgress, [0.5, 1], [-400, -500]);
   const MountainsY = useTransform(scrollYProgress, [0.5, 1], [0, 700]);
   const hotAirBalloonY = useTransform(scrollYProgress, [0.43, 1], [0, 1900]);
   const hotAirBalloonX = useTransform(scrollYProgress, [0.43, 1], [0, -400]);
+
   return (
     <motion.div
       id="about"
@@ -123,10 +121,12 @@ const About = ({ setBackgroundColor }) => {
       <motion.div
         style={{
           display: "flex",
-          height: 700,
           width: "100vw",
-          maxWidth: 1200,
+          position: "absolute",
+          bottom: 0,
+          maxWidth: 800,
           y: MountainsY,
+          minHeight: 1000,
         }}
         className="mountainsContainer"
         ref={mountains}
@@ -138,7 +138,7 @@ const About = ({ setBackgroundColor }) => {
           position: "absolute",
           bottom: 0,
           left: 0,
-          y: cloudsExit,
+
           top: 1950,
         }}
       >

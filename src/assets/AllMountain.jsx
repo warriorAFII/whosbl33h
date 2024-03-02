@@ -8,6 +8,7 @@ const AllMountains = ({ height, width, ...props }) => (
     preserveAspectRatio="xMidYMid meet"
     width={width}
     viewBox="0 0 200 120"
+    scale={2}
   >
     <defs>
       <clipPath id="b" clipPathUnits="userSpaceOnUse">

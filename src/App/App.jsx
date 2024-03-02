@@ -8,6 +8,7 @@ import Contact from "../Pages/Contact";
 import StarsTransition from "../Components/StarsTransition";
 import "./index.css";
 import Cloud from "../assets/cloud.png";
+import KratsiaAi from "../Pages/ProjectScreens/kratsia-ai";
 
 function App() {
   const [backgroundColor, setBackgroundColor] = useState("#Fdc269");
@@ -61,6 +62,7 @@ function App() {
       <div className="contact">
         <Contact />
       </div>
+      {/* <KratsiaAi /> */}
     </>
   );
 }
