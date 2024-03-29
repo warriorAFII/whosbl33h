@@ -33,20 +33,24 @@ const About = ({ setBackgroundColor }) => {
   // const textY = useTransform(scrollYProgress, [0.5, 1], ["0%", "200%"]);
 
   const cloudOpacity = useTransform(scrollYProgress, [0.14, 0.2], [0, 1]);
-  const cloudsExit = useTransform(scrollYProgress, [0.5, 1], [-400, -500]);
-  const MountainsY = useTransform(scrollYProgress, [0.5, 1], [0, 700]);
+  const cloudsExit = useTransform(scrollYProgress, [0.6, 1], [-0, -500]);
+  const MountainsY = useTransform(scrollYProgress, [0.6, 1], [0, 400]);
   const hotAirBalloonY = useTransform(scrollYProgress, [0.43, 1], [0, 1900]);
   const hotAirBalloonX = useTransform(scrollYProgress, [0.43, 1], [0, -400]);
+  const hotAirBalloonRotate = useTransform(
+    scrollYProgress,
+    [0.43, 0.6],
+    [10, 0]
+  );
 
   return (
     <motion.div
       id="about"
       className="w-full overflow-hidden-web"
       style={{
-        position: "relative",
         // transform: isInView ? "none" : "translateX(-1000px)",
-
-        height: "200vh",
+        position: "relative",
+        height: "160vh",
       }}
       ref={container}
     >
@@ -79,84 +83,81 @@ const About = ({ setBackgroundColor }) => {
           />
         </motion.div>
       </div>
-      <h1 style={{ textAlign: "center", fontSize: 50 }}>What we offer! </h1>
-      <div
-        style={{
-          flexDirection: "row",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <motion.h1
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <h1
           style={{
-            textAlign: "center",
-            fontSize: 22,
-            zIndex: 1,
-            marginTop: 70,
-            position: "relative",
-            // y: textY,
+            fontSize: 90,
+            marginTop: 100,
+            lineHeight: 1,
+            paddingLeft: 50,
           }}
         >
-          Discover the extraordinary with Build Blox. We specialize in crafting
-          stunning User Interfaces (UI) that elevate your online presence.
-          <br />
-          <br />
-          From e-commerce to local business websites, our services are tailored
-          to meet your unique needs. <br />
-          <br />
-          Experience the perfect blend of creativity and functionality with our
-          team. Let's bring your vision to life.
-        </motion.h1>
+          What do <br /> we offer!{" "}
+        </h1>
+
         <motion.div
-          style={{ y: hotAirBalloonY, x: hotAirBalloonX, width: "50vw" }}
+          style={{
+            y: hotAirBalloonY,
+            x: hotAirBalloonX,
+            marginLeft: 150,
+            rotate: hotAirBalloonRotate,
+          }}
           transition={{
             ease: "easeOut",
           }}
         >
-          <HotAirBalloon width="20vh" height="600" />
+          <HotAirBalloon width="20vh" height="300" />
         </motion.div>
       </div>
+      <motion.h1
+        style={{
+          fontSize: 22,
+          zIndex: 1,
+          paddingLeft: 70,
+          position: "relative",
+          marginTop: 20,
+          fontWeight: 600,
+          fontFamily: "Sofia Pro, sans-serif",
+          // y: textY,
+        }}
+      >
+        Discover the extraordinary with Build Blox. We specialize in crafting
+        stunning User Interfaces (UI) that elevate your online presence.
+        <br />
+        <br />
+        From e-commerce to local business websites, our services are tailored to
+        meet your unique needs. <br />
+        <br />
+        Experience the perfect blend of creativity and functionality with our
+        team. Let's bring your vision to life.
+      </motion.h1>
+
       <div style={{ height: "30vh" }} className="spacer"></div>
 
       <motion.div
         style={{
           display: "flex",
-          width: "100vw",
-          position: "absolute",
+          position: "absolute", // Change this to absolute
           bottom: 0,
-          maxWidth: 800,
           y: MountainsY,
-          minHeight: 1000,
+          width: "100vw",
+          maxHeight: 500,
+          justifyContent: "center", // Center horizontally
+          zIndex: 1, // Adjust the zIndex as needed
         }}
         className="mountainsContainer"
         ref={mountains}
       >
         <AllMountains />
       </motion.div>
-      <motion.div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-
-          top: 1950,
-        }}
-      >
-        <Clouds
-          width="100%"
-          height="300"
-          style={{ zIndex: 20, position: "relative", bottom: 15, opacity: 0.1 }}
-        />
-      </motion.div>
 
       <motion.div
         style={{
           position: "absolute",
-          bottom: 0,
-          left: 0,
-          y: cloudsExit,
+          minHeight: 500,
           zIndex: 20,
-          top: 2000,
+          bottom: -380,
+          // y: cloudsExit,
           width: "100vw",
         }}
       >
@@ -169,13 +170,11 @@ const About = ({ setBackgroundColor }) => {
           style={{
             backgroundColor: backgroundColorChange,
             width: "105vw",
-            height: 1200,
-            bottom: 160,
+            height: 100,
             position: "relative",
           }}
         ></motion.div>
       </motion.div>
-
       {/* Rest of the code */}
     </motion.div>
   );

@@ -1,14 +1,12 @@
 import * as React from "react";
-const AllMountains = ({ height, width, ...props }) => (
+const AllMountains = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlSpace="preserve"
     {...props}
-    height={height}
     preserveAspectRatio="xMidYMid meet"
-    width={width}
-    viewBox="0 0 200 120"
-    scale={2}
+    width="100%"
+    viewBox="0 0 500 255"
   >
     <defs>
       <clipPath id="b" clipPathUnits="userSpaceOnUse">
@@ -55,7 +53,7 @@ const AllMountains = ({ height, width, ...props }) => (
           fillOpacity: 1,
           strokeWidth: 1.16661,
         }}
-        transform="matrix(.48207 0 0 .42788 39.102 36.3)"
+        transform="matrix(1.1907 0 0 1.02358 94.51 94.136)"
       />
       <path
         d="m39.29 69.815 6.383-11.057 12.33 17.4 9.262-17.314L82.66 71.272 58.378 27.388z"
@@ -65,7 +63,7 @@ const AllMountains = ({ height, width, ...props }) => (
           fillOpacity: 1,
           strokeWidth: 1.17743,
         }}
-        transform="matrix(.48207 0 0 .42788 39.102 36.3)"
+        transform="matrix(1.1907 0 0 1.02358 94.51 94.136)"
       />
       <path
         d="m58.719 27.876-3.08 18.382 12.81 36.426-10.592 23.83 12.931 17.701-8.62 17.702 8.128 14.638 59.117-.51z"
@@ -75,7 +73,7 @@ const AllMountains = ({ height, width, ...props }) => (
           fillOpacity: 0.292035,
           strokeWidth: 1.16382,
         }}
-        transform="matrix(.48207 0 0 .42788 39.102 36.3)"
+        transform="matrix(1.1907 0 0 1.02358 94.51 94.136)"
       />
     </g>
     <g
@@ -91,7 +89,7 @@ const AllMountains = ({ height, width, ...props }) => (
           fillOpacity: 1,
           strokeWidth: 1.16661,
         }}
-        transform="matrix(.43374 0 0 .43998 109.823 29.41)"
+        transform="matrix(1.07132 0 0 1.05252 269.187 77.655)"
       />
       <path
         d="m39.29 69.815 6.383-11.057 12.33 17.4 9.262-17.314L82.66 71.272 58.378 27.388z"
@@ -101,7 +99,7 @@ const AllMountains = ({ height, width, ...props }) => (
           fillOpacity: 1,
           strokeWidth: 1.17743,
         }}
-        transform="matrix(.43374 0 0 .43998 109.823 29.41)"
+        transform="matrix(1.07132 0 0 1.05252 269.187 77.655)"
       />
       <path
         d="m58.719 27.876-3.08 18.382 12.81 36.426-10.592 23.83 12.931 17.701-8.62 17.702 8.128 14.638 59.117-.51z"
@@ -111,14 +109,14 @@ const AllMountains = ({ height, width, ...props }) => (
           fillOpacity: 0.292035,
           strokeWidth: 1.16382,
         }}
-        transform="matrix(.43374 0 0 .43998 109.823 29.41)"
+        transform="matrix(1.07132 0 0 1.05252 269.187 77.655)"
       />
     </g>
     <g
       style={{
         display: "inline",
       }}
-      transform="matrix(.6045 0 0 .59146 123.818 12.745)"
+      transform="matrix(1.49307 0 0 1.4149 303.753 37.787)"
     >
       <path
         d="M-.27 156.2 58.843 28.094l71.079 128.344Z"
@@ -222,7 +220,7 @@ const AllMountains = ({ height, width, ...props }) => (
       style={{
         display: "inline",
       }}
-      transform="matrix(.6045 0 0 .59146 59.91 12.628)"
+      transform="matrix(1.49307 0 0 1.4149 145.906 37.508)"
     >
       <path
         d="M-.27 156.2 58.843 28.094l71.079 128.344Z"
@@ -315,7 +313,7 @@ const AllMountains = ({ height, width, ...props }) => (
         />
       </g>
     </g>
-    <g transform="matrix(.6045 0 0 .59146 1.572 12.621)">
+    <g transform="matrix(1.49307 0 0 1.4149 1.813 37.49)">
       <path
         d="M-.27 156.2 58.843 28.094l71.079 128.344Z"
         style={{
@@ -452,9 +450,8 @@ const AllMountains = ({ height, width, ...props }) => (
         shapeInside: "url(#d)",
         fill: "#000",
         strokeWidth: 0.321,
-        fontSize: 20,
       }}
-      transform="matrix(.26458 0 0 .26458 9.03 -103.344)"
+      transform="matrix(.6535 0 0 .63294 20.231 -239.923)"
     >
       <tspan x={69.789} y={409.501}>
         <tspan
@@ -475,9 +472,8 @@ const AllMountains = ({ height, width, ...props }) => (
         shapeInside: "url(#e)",
         fill: "#000",
         strokeWidth: 0.321,
-        fontSize: 20,
       }}
-      transform="matrix(.26458 0 0 .26458 67.845 -104.815)"
+      transform="matrix(.6535 0 0 .63294 165.504 -243.442)"
     >
       <tspan x={69.789} y={409.501}>
         <tspan
@@ -507,18 +503,17 @@ const AllMountains = ({ height, width, ...props }) => (
       style={{
         whiteSpace: "pre",
         shapeInside: "url(#f)",
-        fill: "#000",
+        fill: "#fff",
+        fillOpacity: 1,
         strokeWidth: 0.321,
-        fontSize: 20,
       }}
-      transform="matrix(.26458 0 0 .26458 130.14 -103.87)"
+      transform="matrix(.6535 0 0 .63294 319.371 -241.184)"
     >
       <tspan x={69.789} y={409.501}>
         <tspan
           style={{
             fontFamily: "&quot",
             InkscapeFontSpecification: "&quot",
-            fill: "#fff3f3",
           }}
         >
           {"Marketing"}

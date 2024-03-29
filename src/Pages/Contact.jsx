@@ -19,9 +19,7 @@ const Contact = () => {
       className="w-full overflow-hidden-web flex flex-col items-center"
     >
       <div className="w-full min-h-[800px] flex flex-col xl:w-[70%] mx-auto">
-        <div className="w-full">
-          <SectionTitle title="CONTACT" subtitle="Get in touch" />
-        </div>
+        <div className="w-full"></div>
         <div className="w-full flex justify-center items-center">
           <LazyMotion features={domAnimation} strict>
             <m.div
@@ -30,8 +28,14 @@ const Contact = () => {
               transition={{ duration: 0.6, type: "spring" }}
               className="w-full sm:w-[90%] md:w-[80%] sm:h-[600px] p-4 flex flex-col sm:flex-row gap-4"
             >
-              <div className="w-full flex justify-center mx-auto">
-                <ContactForm />
+              <div
+                style={{
+                  height: 500,
+                  backgroundColor: "#FFF1E6",
+                  width: "80%",
+                }}
+              >
+                <h1 style={{ color: "#aa6161" }}>Contact us</h1>
               </div>
             </m.div>
           </LazyMotion>

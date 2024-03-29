@@ -11,6 +11,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "SofiaPro";
+  src: local("SofiaPro"), url(./fonts/SofiaProRegular.ttf) format("truetype");
+}
+
 * {
   margin: 0;
   padding: 0;

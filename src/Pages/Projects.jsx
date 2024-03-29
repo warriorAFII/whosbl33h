@@ -7,7 +7,7 @@ import Conveyor from "../assets/conveyor.png";
 import { useRef } from "react";
 import { useScroll, useMotionValueEvent, useTransform } from "framer-motion";
 import ProjectsMenu from "../Components/ProjectsMenu";
-
+import Clouds from "../assets/clouds";
 const Projects = ({ setBackgroundColor }) => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
