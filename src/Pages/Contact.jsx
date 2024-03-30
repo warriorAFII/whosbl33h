@@ -1,12 +1,3 @@
-/*
-   Copyright (C), 2023-2024, Sara Echeverria (bl33h)
-   Author: Sara Echeverria
-   FileName: Contact.jsx
-   Version: I
-   Creation: 02/06/2023
-   Last modification: 03/06/2023
-*/
-
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import ContactForm from "../Components/ContactForm";
 import SectionTitle from "../Components/SectionTitle";
@@ -32,21 +23,31 @@ const Contact = () => {
                 style={{
                   height: 500,
                   backgroundColor: "#FFF1E6",
-                  width: "80%",
+
+                  padding: 20,
+                  flexDirection: "row",
+                  display: "flex",
                 }}
               >
-                <h1 style={{ color: "#aa6161" }}>Contact us</h1>
+                <div>
+                  <h1 style={{ color: "#aa6161", fontSize: 60 }}>Contact us</h1>
+                  <p style={{ fontWeight: 300, fontFamily: "sofiaPro" }}>
+                    We’d love to hear more about your project, drop us a message
+                    and we’ll get back to you within 48 hours!
+                  </p>
+                  <h3 style={{ color: "#aa6161" }}>Our Email</h3>
+                  <p style={{ fontWeight: 300, fontFamily: "sofiaPro" }}>
+                    Contact@BuildBlox.co.uk
+                  </p>
+                  <h3 style={{ color: "#aa6161" }}>Follow us</h3>
+                  <SocialLinks />
+                </div>
+                <div>
+                  <ContactForm />
+                </div>
               </div>
             </m.div>
           </LazyMotion>
-        </div>
-      </div>
-      <div className="w-full flex flex-col">
-        <SocialLinks />
-        <div className="bg-primary-600 flex justify-center pb-4 text-grayscale-50">
-          <span>
-            <em>Build Blox Forever</em>
-          </span>
         </div>
       </div>
     </div>

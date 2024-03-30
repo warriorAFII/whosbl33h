@@ -36,22 +36,10 @@ const ContactForm = () => {
   return (
     <div
       style={{
-        backgroundImage:
-          "url(https://uploads-ssl.webflow.com/62e3ee10882dc50bcae8d07a/631a5d4631d4c55a475f3e34_noise-50.png)",
         width: "80%",
         height: "96%",
-        boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.2)",
       }}
     >
-      <div>
-        <h2
-          style={{ fontFamily: "Morganite Bold, sans-serif" }}
-          className="message text-7xl bg-primary-600 p-2 rounded-xl text-grayscale-200 text-center rounded-br-[0%] relative shadow-2xl "
-        >
-          <Typewriter words={["Let's get in touch!"]} loop={true} />
-          &nbsp;
-        </h2>
-      </div>
       <div className="w-full flex justify-center">
         <form
           id="contact_form"
