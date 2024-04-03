@@ -84,14 +84,7 @@ const About = ({ setBackgroundColor }) => {
         </motion.div>
       </div>
       <div style={{ display: "flex", flexDirection: "row" }}>
-        <h1
-          style={{
-            fontSize: 90,
-            marginTop: 100,
-            lineHeight: 1,
-            paddingLeft: 50,
-          }}
-        >
+        <h1 className="text-6xl sm:text-7xl mt-32 leading-none pl-12">
           What do <br /> we offer!{" "}
         </h1>
 
@@ -100,6 +93,8 @@ const About = ({ setBackgroundColor }) => {
             y: hotAirBalloonY,
             x: hotAirBalloonX,
             marginLeft: 150,
+            position: "absolute",
+            right: 20,
             rotate: hotAirBalloonRotate,
           }}
           transition={{

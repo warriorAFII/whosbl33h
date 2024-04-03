@@ -247,7 +247,7 @@ const StarsTransition = ({ style, setBackgroundColor }) => {
           }}
         />
 
-        <p className={styles.paragraph} ref={textContainer}>
+        <h1 className={styles.paragraph} ref={textContainer}>
           {words.map((word, i) => {
             const start = i / words.length;
             const end = start + 1 / words.length;
@@ -257,7 +257,7 @@ const StarsTransition = ({ style, setBackgroundColor }) => {
               </Word>
             );
           })}
-        </p>
+        </h1>
       </motion.div>
     </div>
   );

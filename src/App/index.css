@@ -17,6 +17,11 @@
   font-weight: 300; /* Light */
 }
 
+p {
+  font-family: "SofiaPro";
+  font-weight: 300;
+}
+
 @font-face {
   font-family: "SofiaPro";
   src: local("SofiaProRegular"),

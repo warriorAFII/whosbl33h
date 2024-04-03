@@ -21,6 +21,10 @@
   color: yellow;
   z-index: 0;
   align-self: center;
+  text-align: center;
+  @media (max-width: 750px) {
+    font-size: 60px;
+  }
 }
 .word {
   z-index: 0;

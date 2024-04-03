@@ -44,7 +44,7 @@ function ProjectsMenu() {
           alignItems: "center",
         }}
       >
-        <p>View Projects</p>
+        <h1>View Projects</h1>
         <i className="fa fa-arrow-circle-right"></i>
       </div>
       <AnimatePresence>

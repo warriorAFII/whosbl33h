@@ -57,15 +57,21 @@ const Projects = ({ setBackgroundColor }) => {
         See what we've been <br /> working on recently!
       </h1>
       <ProjectsMenu />
+
       <motion.img
         src={Conveyor}
         style={{
-          width: 1250,
+          width: "100%",
+          maxWidth: 1000,
+          minWidth: 600,
           height: 500,
-          position: "relative",
+          marginTop: 300,
+          right: 0,
+          position: "absolute",
         }}
         transition={{ duration: 0.6, delay: 0.8, type: "spring" }}
       />
+
       <div className="spacer" style={{ height: "30vh" }}></div>
     </motion.div>
   );
