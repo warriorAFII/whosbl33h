@@ -16,19 +16,17 @@ const ContactForm = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm("whoisbl33h", "template1", e.target, "JjC_Nnt4rUsjIsRtz")
-      .then(
-        (result) => {
-          document.getElementById("contact_form").reset();
-          setIsSent(true);
-          alert("Thank you I will get back to you as soon as possible ! (:");
-        },
-        (error) => {
-          console.error(error);
-          setIsSent(false);
-        }
-      );
+    emailjs.sendForm("service_13uez5d", "template1", e.target).then(
+      (result) => {
+        document.getElementById("contact_form").reset();
+        setIsSent(true);
+        alert("Thank you I will get back to you as soon as possible ! (:");
+      },
+      (error) => {
+        console.error(error);
+        setIsSent(false);
+      }
+    );
   };
 
   return (
