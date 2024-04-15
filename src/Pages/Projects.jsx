@@ -65,7 +65,7 @@ const Projects = ({ setBackgroundColor }) => {
           maxWidth: 1000,
           minWidth: 600,
           height: 500,
-          marginTop: 300,
+          marginTop: 500,
           right: 0,
           position: "absolute",
         }}
