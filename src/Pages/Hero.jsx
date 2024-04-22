@@ -43,7 +43,7 @@ const Hero = ({ style }) => {
         <m.div
           style={{ ...style }}
           id="hero"
-          className="relative w-full flex justify-center items-center h-screen min-h-[800px]"
+          className="relative w-full flex justify-center items-center h-screen min-h-[800px] sm:flex-row  flex-col"
         >
           <style>{`.clip-path-first { clip-path: ${clipPathValueFirst}; }`}</style>
           <HeroText />

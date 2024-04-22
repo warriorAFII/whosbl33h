@@ -1,19 +1,19 @@
 import React from "react";
 
-const KratsiaAi = () => {
+const Qup = () => {
   return (
     <div
       style={{ height: "100vh", backgroundColor: "#F0E4DC", paddingTop: 40 }}
     >
       <div className="text-center ">
-        <h1 style={{ color: "#586EF5", fontSize: 40 }}>Kratsia.AI</h1>
-        <h3 style={{ color: "#586EF5", fontSize: 15 }}>
+        <h1 style={{ color: "#634294", fontSize: 40 }}>Q-UP</h1>
+        <h3 style={{ color: "#634294", fontSize: 15 }}>
           Image generation software
         </h3>
       </div>
       <div
         style={{
-          backgroundColor: "#4253BC",
+          backgroundColor: "#634294",
           margin: 10,
           borderRadius: 8,
           flexDirection: "row",
@@ -39,7 +39,7 @@ const KratsiaAi = () => {
         </div>
       </div>
       <div className="ml-6 mt-20 mr-16">
-        <h1 style={{ fontSize: 30, color: "#586EF5" }}>Overview</h1>
+        <h1 style={{ fontSize: 30, color: "#634294" }}>Overview</h1>
         <p>
           Faced with the challenge of unifying disparate entities acquired
           within a short span, Voyager Worldwide, a Maritime Navigation software
@@ -52,7 +52,7 @@ const KratsiaAi = () => {
         </p>
       </div>
       <div className="ml-6 mt-20 mr-16">
-        <h1 style={{ fontSize: 30, color: "#586EF5" }}>Challenge</h1>
+        <h1 style={{ fontSize: 30, color: "#634294" }}>Challenge</h1>
         <p>
           Faced with the challenge of unifying disparate entities acquired
           within a short span, Voyager Worldwide, a Maritime Navigation software
@@ -67,4 +67,4 @@ const KratsiaAi = () => {
     </div>
   );
 };
-export default KratsiaAi;
+export default Qup;

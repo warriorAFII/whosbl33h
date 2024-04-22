@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="overflow-hidden-web flex flex-col items-center mt-40 mb-40"
+      className="overflow-hidden-web flex flex-col items-center mt-80 mb-40"
     >
       <LazyMotion features={domAnimation} strict>
         <m.div

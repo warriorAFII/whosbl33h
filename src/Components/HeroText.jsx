@@ -22,7 +22,7 @@ const HeroText = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, type: "spring" }}
-          className="text-center flex justify-center items-center flex-col opacity-100 text-7xl sm:text-9xl cursor-default"
+          className="text-center flex justify-center items-center flex-col opacity-100 text-8xl sm:text-9xl cursor-default sm:mt-0 mt-24"
           style={{ fontFamily: "League Spartan" }}
         >
           <m.span
@@ -39,7 +39,6 @@ const HeroText = () => {
           >
             BLOX{" "}
           </m.span>
-          
         </m.h1>
       </LazyMotion>
     </div>

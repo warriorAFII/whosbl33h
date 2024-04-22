@@ -1,19 +1,17 @@
 import React from "react";
 
-const KratsiaAi = () => {
+const Coder = () => {
   return (
     <div
       style={{ height: "100vh", backgroundColor: "#F0E4DC", paddingTop: 40 }}
     >
       <div className="text-center ">
-        <h1 style={{ color: "#586EF5", fontSize: 40 }}>Kratsia.AI</h1>
-        <h3 style={{ color: "#586EF5", fontSize: 15 }}>
-          Image generation software
-        </h3>
+        <h1 style={{ color: "#7367F0", fontSize: 40 }}>Coder</h1>
+        <h3 style={{ color: "#7367F0", fontSize: 15 }}>Javascript quiz app</h3>
       </div>
       <div
         style={{
-          backgroundColor: "#4253BC",
+          backgroundColor: "#7367F0",
           margin: 10,
           borderRadius: 8,
           flexDirection: "row",
@@ -35,11 +33,11 @@ const KratsiaAi = () => {
         </div>
         <div className="text-center">
           <h1 className="text-[#fff]">Sector</h1>
-          <p className="text-[#fff] text-[12px]">AI</p>
+          <p className="text-[#fff] text-[12px]">Gaming</p>
         </div>
       </div>
       <div className="ml-6 mt-20 mr-16">
-        <h1 style={{ fontSize: 30, color: "#586EF5" }}>Overview</h1>
+        <h1 style={{ fontSize: 30, color: "#7367F0" }}>Overview</h1>
         <p>
           Faced with the challenge of unifying disparate entities acquired
           within a short span, Voyager Worldwide, a Maritime Navigation software
@@ -52,7 +50,7 @@ const KratsiaAi = () => {
         </p>
       </div>
       <div className="ml-6 mt-20 mr-16">
-        <h1 style={{ fontSize: 30, color: "#586EF5" }}>Challenge</h1>
+        <h1 style={{ fontSize: 30, color: "#7367F0" }}>Challenge</h1>
         <p>
           Faced with the challenge of unifying disparate entities acquired
           within a short span, Voyager Worldwide, a Maritime Navigation software
@@ -67,4 +65,4 @@ const KratsiaAi = () => {
     </div>
   );
 };
-export default KratsiaAi;
+export default Coder;

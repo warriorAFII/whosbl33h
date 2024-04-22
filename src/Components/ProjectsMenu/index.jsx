@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./index.css";
 import { motion, AnimatePresence } from "framer-motion";
 import { bl33hIcon } from "../../assets";
+import { Link } from "react-router-dom";
 function ProjectsMenu() {
   const [open, setOpen] = useState(false);
 
@@ -61,8 +62,7 @@ function ProjectsMenu() {
             <div className="btn_close" onClick={closeMenu}>
               X
             </div>
-            <motion.a
-              href="/Pages/ProjectScreens/kratsia-ai"
+            <motion.div
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.8 }}
@@ -75,72 +75,68 @@ function ProjectsMenu() {
                 },
               }}
             >
-              Kratsia.Ai
-            </motion.a>
-            <motion.a
-              href=""
+              <Link to="/KratsiaAi">Kratsia.Ai</Link>
+            </motion.div>
+            <motion.div
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.7 }}
+              transition={{ delay: 0.8 }}
               exit={{
                 opacity: 0,
                 y: 90,
                 transition: {
                   ease: "easeInOut",
-                  delay: 0.8,
+                  delay: 1,
                 },
               }}
             >
-              Tranquiliti
-            </motion.a>
-            <motion.a
-              href=""
+              <Link to="/Tranquiliti">Tranquiliti</Link>
+            </motion.div>
+            <motion.div
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 0.8 }}
               exit={{
                 opacity: 0,
                 y: 90,
                 transition: {
                   ease: "easeInOut",
-                  delay: 0.6,
+                  delay: 1,
                 },
               }}
             >
-              Pocket Mosque
-            </motion.a>
-            <motion.a
-              href=""
+              <Link to="/PocketMosque">Pocket Mosque</Link>
+            </motion.div>
+            <motion.div
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.8 }}
               exit={{
                 opacity: 0,
                 y: 90,
                 transition: {
                   ease: "easeInOut",
-                  delay: 0.4,
+                  delay: 1,
                 },
               }}
             >
-              Coder JS
-            </motion.a>
-            <motion.a
-              href=""
+              <Link to="/Coder">Coder JS</Link>
+            </motion.div>
+            <motion.div
               initial={{ y: 80, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.8 }}
               exit={{
                 opacity: 0,
                 y: 90,
                 transition: {
                   ease: "easeInOut",
-                  delay: 0.2,
+                  delay: 1,
                 },
               }}
             >
-              Q-UP
-            </motion.a>
+              <Link to="/Q-UP">Q-UP</Link>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
