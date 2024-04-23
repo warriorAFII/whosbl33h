@@ -41,10 +41,11 @@ const About = ({ setBackgroundColor }) => {
       if (width < 1468 && width > 900) {
         //medium screen
         top = 100;
+        right = 100;
       } else if (width < 1300) {
         // small screen
         scale = 0.8;
-        top = 0;
+        top = -30;
         right = 0;
       } else {
         // large screen
@@ -254,7 +255,7 @@ const About = ({ setBackgroundColor }) => {
           maxHeight: 600,
           justifyContent: "center", // Center horizontally
           zIndex: 20, // Adjust the zIndex as needed
-          minWidth: 700,
+          minWidth: 600,
         }}
         className="mountainsContainer"
         ref={mountains}
@@ -267,10 +268,11 @@ const About = ({ setBackgroundColor }) => {
           position: "absolute",
           minHeight: 500,
           zIndex: 20,
-          bottom: -380,
+
           // y: cloudsExit,
           width: "100vw",
         }}
+        className="sm:bottom-[-380px] bottom-[-430px]"
       >
         <Clouds
           style={{ zIndex: 20, position: "relative" }}

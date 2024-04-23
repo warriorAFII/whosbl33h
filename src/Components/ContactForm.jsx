@@ -15,18 +15,26 @@ const ContactForm = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
+    console.log(e.target);
     e.preventDefault();
-    emailjs.sendForm("service_13uez5d", "template1", e.target).then(
-      (result) => {
-        document.getElementById("contact_form").reset();
-        setIsSent(true);
-        alert("Thank you I will get back to you as soon as possible ! (:");
-      },
-      (error) => {
-        console.error(error);
-        setIsSent(false);
-      }
-    );
+    emailjs
+      .sendForm(
+        "service_13uez5d",
+        "template_iyebp2p",
+        e.target,
+        "OLpHe006pAU8jFhj-"
+      )
+      .then(
+        (result) => {
+          document.getElementById("contact_form").reset();
+          setIsSent(true);
+          alert("Thank you I will get back to you as soon as possible ! (:");
+        },
+        (error) => {
+          console.error(error);
+          setIsSent(false);
+        }
+      );
   };
 
   return (
@@ -71,7 +79,7 @@ const ContactForm = () => {
               className="p-[0.5em] rounded-xl text-grayscale-950"
               id="email"
               type="text"
-              name="from_last"
+              name="from_email"
               required
             />
           </div>
@@ -99,14 +107,14 @@ const ContactForm = () => {
               style={{
                 color: "black",
               }}
-              htmlFor="phone"
+              htmlFor="referral_source"
             >
               How did you find us?
             </label>
             <select
               className="p-[0.5em] rounded-xl text-grayscale-950"
               id="source"
-              name="source"
+              name="referral_source"
               required
             >
               <option value="none">Select an option</option>
